@@ -52,12 +52,15 @@ function createArtElement(artworkData) {
         <p>${artworkData.artistDisplayName}, ${artworkData.objectDate}</p>
         
     `
+
+
     div.classList.add('artwork-card')
+    const removeButton = div.querySelector('button.remove-artwork');
+    removeButton.onclick = () => div.remove();
+    
+
     return div;
 }
-
-
-// let objectIds = [];
 
 const artIndexInput = document.getElementById('art-index-input');
 const indexRange = document.getElementById('index-range');
@@ -65,7 +68,6 @@ const submitButton = document.getElementById('submit');
 const container = document.getElementById('art-container');
 const randomButton = document.getElementById('random');
 const scrollButton = document.getElementById('scroll-up');
-// const removeArtwork = document.getElementsByClassName('remove-artwork');
 
 fetch('https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&isHighlight=true&q=""')
     .then(res => res.json())
@@ -79,7 +81,7 @@ fetch('https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages
         indexRange.innerText = `between 1 and ${objectIds.length}`;
     });
 
-// const displayedArt = [];
+
 
 const getAndDisplayArtData = (artId) => {
     fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${artId}`)
@@ -132,22 +134,6 @@ randomButton.onclick = () => {
     const artId = objectIds[randomArtIndex];
     getAndDisplayArtData(artId);
 }
-
-
-
-// removeArtwork.onclick = () => {
-//     console.log('tftfufuf');
-
-//     // document.removeChild(artElement.objectID);
-    
-//     // console.log(hhhhhhh);
-//     // const removeArtworkFunc = (objectID) => {
-//     //     const artCard = document.getElementsByClassName(objectID);
-//     //     artCard.remove();
-//     // }
-//     // removeArtworkFunc(removeArtwork.objectID);
-
-// }
 
 scrollButton.onclick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
