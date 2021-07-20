@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Metropolitan New York museum of the smachot</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
+</head>
+
+<body>
+    <header class='topbar'>
+        <h1 id='ani'>ANI</h1>
+        <h1>MET</h1>
+    </header>
+    <main>
+        <div id='input-container'>
+
+            <div id='choose-id'>Choose a number</div>
+            <span id='index-range' class="hidden"></span>
+
+            <div id='input-row'>
+                <input type='number' id='art-index-input' disabled>
+                <button id='submit' disabled>Done</button>
+            </div>
+
+            <button id='random'>
+                <img id='random-icon' src="./random-icon.svg" />
+            </button>
+
+        </div>
+
+        <div id='art-container'></div>
+
+    </main>
+
+    <button id='scroll-up' class="invisible">
+        <img id='scroll-up-icon' src="./scroll-up.svg" />
+    </button>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

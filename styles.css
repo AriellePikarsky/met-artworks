@@ -1,0 +1,274 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+:root {
+    --color-primary: tomato;
+    --color-light: lightsalmon;
+    --color-background: rgb(16, 68, 68)
+}
+
+header {
+    width: 100%;
+    height: 10%;
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    text-align: center;
+    display:flex;
+    justify-content: space-evenly;
+    
+}
+
+header > h1 {
+    font-size: 150px;
+    letter-spacing: 50px;
+    line-height:60%;
+    font-weight: bold;
+    padding: 0;
+    
+}
+
+header > #ani {
+    font-size: 20px;
+    align-self: center;
+}
+
+p, h1 {
+    margin: 0;
+}
+
+body {
+    background-color: var(--color-background);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    width: 100%;
+    height: 90%;
+    display:flex;
+    justify-content: space-between; 
+    align-self: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.art {
+    background-color:var(--color-primary);
+    padding: 10px;
+    margin: 16px;
+    border-radius: 4px;
+
+    display: inline-block;
+    
+    vertical-align: top;
+
+    max-width: 300px;
+}
+
+.art > h3 {
+    margin: 0;
+    font-size: 24px;
+}
+.art > span {
+    font-style: italic;
+}
+.art > img {
+    max-width: 100%;
+    margin: 0;
+
+}
+
+input {
+   
+    background-color:  var(--color-light);
+    border-style: none;
+    height: 38px;
+    width: 260px;
+    
+    color:darkslategray;
+    font-size: 30px;  
+}
+
+input:focus {
+    background-color:var(--color-primary);
+    outline: none;
+    
+    color:rgb(253, 185, 158);
+    font-size: 30px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#input-container {
+    margin-top: 100px;
+    margin-bottom:30px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+#input-row  {
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    justify-content: space-between;
+    column-gap: 20px;
+
+}
+
+#submit {
+    width: 89px;
+    height: 100%;
+    appearance: none;
+    border: 1px solid var(--color-light);
+    background-color:var(--color-background);
+    color:  var(--color-light);
+    box-shadow: 2px 2px #ffa07a;
+    padding: 4px;
+    align-self: center;
+    cursor: pointer;
+    display: inline;
+    font-size: 19px;
+}
+
+#choose-id {
+    font-size: 28px;
+    color: var(--color-light);
+    letter-spacing: 6px;
+    font-weight: lighter;
+}
+
+#art-container {
+    color:rgb(252, 196, 174);
+    background-color:none;
+    max-width: 80%;
+    border: solid 2px  var(--color-light);
+    margin: 40px;
+    padding: 30px;
+
+    justify-content: center;
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    column-gap: 20px;
+}
+
+.artwork-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-primary);
+    max-width: 700px;
+}
+
+
+
+.artwork-card  h3 {
+    margin-top: 2px;
+    margin-bottom: 10px;
+    margin-left:8px;
+    margin-right: 8px;
+}
+
+.artwork-card > p {
+    font-size: 20px;
+    margin: 8px;
+}
+
+.img-container {
+    height: 330px;
+    background-color: var(--color-light);
+
+}
+
+.img-container > img {
+    display: block;
+    max-height: 330px;
+    height: auto;
+    align-self: center;
+    margin: 0 auto;
+}
+
+.remove-artwork {
+  
+    appearance: none;
+    border-style: none;
+    background: none;
+    color:  var(--color-background);
+    padding: 0;
+    align-self: center;
+    cursor: pointer;
+    display: inline;
+    font-size: 17px;
+    margin: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.hidden {
+    display: none;
+}
+
+#index-range {
+    font-size: 20px;
+    color: var(--color-light);
+    letter-spacing: 2px;
+    font-weight: lighter;
+    margin: 8px;
+}
+
+#random {
+    background-color: var(--color-background);
+    appearance: none;
+    border-style: none;
+    width: 55px;
+    cursor: pointer;
+    transition: transform 150ms ease-in-out;
+}
+
+#random:hover {
+    transform: scale(1.1);
+}
+
+#scroll-up {
+    display: inline-block;
+    appearance: none;
+    align-self: flex-start;
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    background: none;
+    border: 2px solid var(--color-light);
+    border-radius: 50%;
+    padding: 12px;
+    transition: opacity 100ms ease-in-out;
+    cursor: pointer;
+}
+#scroll-up.invisible {
+    opacity: 0;
+}
+
+#scroll-up > img {
+    display: block;
+    width: 2em;
+    height: 2em;
+}
