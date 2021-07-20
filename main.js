@@ -13,29 +13,8 @@
  * - isHighlight
  */
 
-// const example = {
-//     objectID: 681246,
-//     isHighlight: true,
-//     primaryImage: "https://images.metmuseum.org/CRDImages/li/original/i19546750-cf.jpg",
-//     department: "The Libraries",
-//     title: "L'office de l'Église en françois contenant les offices pour toute l'année, plusieurs prières tirées de l'écriture-sainte \u0026 des saints pères, les hymnes en vers françois, avec une instruction pour les fidèles",
-//     artistDisplayName: "Catholic Church",
-//     artistDisplayBio: "",
-//     medium: "",
-//     objectDate: "1792"
-// }
-// const example2 = {
-//     objectID: 202614,
-//     isHighlight: true,
-//     primaryImage: "https://images.metmuseum.org/CRDImages/es/original/DP162240.jpg",
-//     department: "European Sculpture and Decorative Arts",
-//     objectName: "Statue",
-//     title: "Winter",
-//     artistDisplayName: "Jean Antoine Houdon",
-//     artistDisplayBio: "French, Versailles 1741–1828 Paris",
-//     objectDate: "1787"
-// }
-
+// Counts how many artworks were added, to determine which column to put the next artwork in.
+let artworkCounter = 0;
 
 function createArtElement(artworkData) {
     const div = document.createElement('div');
@@ -56,8 +35,10 @@ function createArtElement(artworkData) {
 
     div.classList.add('artwork-card')
     const removeButton = div.querySelector('button.remove-artwork');
-    removeButton.onclick = () => div.remove();
-    
+    removeButton.onclick = () => {
+        div.remove();
+        artworkCounter--;
+    };
 
     return div;
 }
@@ -66,6 +47,8 @@ const artIndexInput = document.getElementById('art-index-input');
 const indexRange = document.getElementById('index-range');
 const submitButton = document.getElementById('submit');
 const container = document.getElementById('art-container');
+const artColumns = container.children;
+
 const randomButton = document.getElementById('random');
 const scrollButton = document.getElementById('scroll-up');
 
@@ -100,20 +83,16 @@ const getAndDisplayArtData = (artId) => {
             }
         })
         .then(artwork => {
-            // displayedArt.push(artwork.objectID);
             const artElement = createArtElement(artwork);
-            container.appendChild(artElement);
-            // artElement.setAttribute("class", `${objectID}`);
+            artColumns[artworkCounter % 3].appendChild(artElement);
+            artworkCounter++;
             return artElement;
            
         })
         .then(artElement => {
             artElement.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
         })
-        
 }
-
-
 
 
 submitButton.onclick = () => {

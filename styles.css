@@ -157,30 +157,12 @@ input[type=number] {
     font-weight: lighter;
 }
 
-#art-container {
-    color:rgb(252, 196, 174);
-    background-color:none;
-    max-width: 80%;
-    border: solid 2px  var(--color-light);
-    margin: 40px;
-    padding: 30px;
-
-    justify-content: center;
-    align-items: flex-start;
-    display: flex;
-    flex-wrap: wrap;
-    row-gap: 20px;
-    column-gap: 20px;
-}
-
 .artwork-card {
     display: flex;
     flex-direction: column;
     background-color: var(--color-primary);
-    max-width: 700px;
+    width: 100%
 }
-
-
 
 .artwork-card  h3 {
     margin-top: 2px;
@@ -195,17 +177,16 @@ input[type=number] {
 }
 
 .img-container {
-    height: 330px;
     background-color: var(--color-light);
-
+    overflow: hidden;
 }
 
 .img-container > img {
     display: block;
-    max-height: 330px;
     height: auto;
     align-self: center;
     margin: 0 auto;
+    max-width: 100%;
 }
 
 .remove-artwork {
@@ -271,4 +252,28 @@ input[type=number] {
     display: block;
     width: 2em;
     height: 2em;
+}
+
+#art-container {
+    color:rgb(252, 196, 174);
+    background-color:none;
+    width: 80%;
+    border: solid 2px  var(--color-light);
+    margin: 40px;
+    padding: 30px;
+
+    display: flex;
+    row-gap: 20px;
+    column-gap: 20px;
+}
+
+#art-container > div {
+    flex: 1 0 25vw;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+#art-container > div.thick {
+    flex: 2 0 50vw;
 }
